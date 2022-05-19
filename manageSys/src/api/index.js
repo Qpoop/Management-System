@@ -26,4 +26,44 @@ export default {
       mock: true,
     });
   },
+  getUserList(params) {
+    return request({
+      url: "/users/list",
+      method: "get",
+      data: params,
+      mock: false,
+    });
+  },
+  deleteUser(params) {
+    return request({
+      url: "/users/delete",
+      method: "post",
+      data: params,
+      mock: false,
+    });
+  },
+  getRoleList() {
+    return request({
+      url: "/roles/allList",
+      method: "get",
+      data: {},
+      mock: true,
+    });
+  },
+  getDeptList() {
+    return request({
+      url: "/dept/list",
+      method: "get",
+      data: {},
+      mock: true,
+    });
+  },
+  addUser(params) {
+    return request({
+      url: "/users/operate",
+      method: "post",
+      data: params,
+      mock: false,
+    });
+  },
 };
