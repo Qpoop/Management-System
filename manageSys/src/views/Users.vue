@@ -71,7 +71,7 @@
         />
       </div>
     </div>
-    <el-dialog v-model="dialogVisible">
+    <el-dialog v-model="dialogVisible" @close="handleReset(userAddFormRef)">
       <el-form :model="userForm" ref="userAddFormRef" :rules="userAddFormRule">
         <el-form-item label="用户名" prop="userName">
           <el-input
@@ -228,7 +228,7 @@ const action = ref("add");
 onMounted(() => {
   getUserList();
   getDeptList();
-  getRoleList();
+  getAllRoleList();
 });
 const getUserList = async () => {
   let params = { ...userQueryForm, ...pager };
@@ -289,8 +289,8 @@ const getDeptList = async () => {
   const { code, data } = await api.getDeptList();
   deptList.value = data;
 };
-const getRoleList = async () => {
-  const { code, data } = await api.getRoleList();
+const getAllRoleList = async () => {
+  const { code, data } = await api.getAllRoleList();
   roleList.value = data;
 };
 

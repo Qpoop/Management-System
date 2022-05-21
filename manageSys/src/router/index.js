@@ -5,6 +5,7 @@ const Welcome = () => import("comps/Welcome.vue");
 const Login = () => import("views/Login.vue");
 const Users = () => import("views/Users.vue");
 const Menu = () => import("views/Menu.vue");
+const Role = () => import("views/Role.vue");
 
 const routes = [
   {
@@ -39,6 +40,14 @@ const routes = [
           title: "菜单管理页",
         },
         component: Menu,
+      },
+      {
+        name: "role",
+        path: "/system/role",
+        meta: {
+          title: "角色管理页",
+        },
+        component: Role,
       },
     ],
   },

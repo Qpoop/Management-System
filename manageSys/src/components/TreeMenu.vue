@@ -2,7 +2,11 @@
   <div class="tree-menu">
     <template v-for="menu in list">
       <el-menu background-color="#011520" text-color="#fff" :router="true">
-        <el-sub-menu v-if="menu.parentId[0] === null" :key="menu._id" index="1">
+        <el-sub-menu
+          v-if="menu.parentId && menu.parentId[0] === null"
+          :key="menu._id"
+          index="1"
+        >
           <template #title>
             <el-icon>
               <location />
@@ -11,7 +15,11 @@
           </template>
           <tree-menu :list="menu.children"></tree-menu>
         </el-sub-menu>
-        <el-menu-item v-else-if="(menu.menuType * 1) === 1" :index="menu.path" index="2">{{ menu.menuName }}
+        <el-menu-item
+          v-else-if="menu.menuType * 1 === 1"
+          :index="menu.path"
+          index="2"
+          >{{ menu.menuName }}
         </el-menu-item>
       </el-menu>
     </template>
@@ -25,7 +33,7 @@ const treeProps = defineProps({
     default: [{}],
   },
 });
-console.log(treeProps.list)
+console.log(treeProps.list);
 </script>
 
 <style scoped lang="less">

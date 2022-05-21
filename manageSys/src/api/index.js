@@ -42,12 +42,12 @@ export default {
       mock: false,
     });
   },
-  getRoleList() {
+  getAllRoleList() {
     return request({
       url: "/roles/allList",
       method: "get",
       data: {},
-      mock: true,
+      mock: false,
     });
   },
   getDeptList() {
@@ -56,6 +56,14 @@ export default {
       method: "get",
       data: {},
       mock: true,
+    });
+  },
+  getRoleList(params) {
+    return request({
+      url: "/roles/list",
+      method: "get",
+      data: params,
+      mock: false,
     });
   },
   addUser(params) {
@@ -69,6 +77,22 @@ export default {
   addMenu(params) {
     return request({
       url: "/menu/operate",
+      method: "post",
+      data: params,
+      mock: false,
+    });
+  },
+  addRole(params) {
+    return request({
+      url: "/roles/operate",
+      method: "post",
+      data: params,
+      mock: false,
+    });
+  },
+  updatePermission(params) {
+    return request({
+      url: "/roles/update/permission",
       method: "post",
       data: params,
       mock: false,

@@ -60,7 +60,7 @@
         </el-table-column>
       </el-table>
     </div>
-    <el-dialog v-model="dialogVisible">
+    <el-dialog v-model="dialogVisible" @close="handleReset(menuAddFormRef)">
       <el-form :model="menuForm" ref="menuAddFormRef">
         <el-form-item label="父级菜单" prop="parentId">
           <el-cascader
